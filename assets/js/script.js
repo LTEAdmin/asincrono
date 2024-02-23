@@ -13,3 +13,4 @@ async function desafioAsincrono() {
     console.log(error);
   }
 }
+desafioAsincrono();

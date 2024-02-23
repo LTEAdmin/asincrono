@@ -1,15 +1,15 @@
 async function desafioAsincrono() {
-    const Albums = await fetch('https://jsonplaceholder.typicode.com/albums');
-    try {
+  debugger;
+  const Albums = await fetch("https://jsonplaceholder.typicode.com/albums");
 
-        fetch(Albums)
-          .then((response) => response.json())
-          .then((data) => console.log(data));
-        const albums = await response.json();
-        console.log(albums);
-    } catch (error) {
-        
-    }
-
-    
+  try {
+    const respuesta = await Albums.json();
+    respuesta.forEach((element) => {
+      if (element.id < 21) {
+        console.log(`ID: ${element.id} , Titulo: ${element.title}`);
+      }
+    });
+  } catch (error) {
+    console.log(error);
+  }
 }

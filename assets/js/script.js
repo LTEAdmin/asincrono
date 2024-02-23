@@ -1,5 +1,4 @@
 async function desafioAsincrono() {
-  debugger;
   const Albums = await fetch("https://jsonplaceholder.typicode.com/albums");
 
   try {
@@ -14,3 +13,17 @@ async function desafioAsincrono() {
   }
 }
 desafioAsincrono();
+
+function mensaje() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("La información ha sido enviada.");
+    }, 3000);
+  });
+}
+
+async function mostrarMensaje(promesa) {
+  const resultado = await promesa;
+  console.log(resultado);
+}
+mostrarMensaje(mensaje());
